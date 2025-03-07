@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sistema de Gerenciamento de Aparelhos - Assistência Técnica
 
-## Getting Started
+Este é um sistema de gerenciamento de aparelhos para assistência técnica, desenvolvido com Next.js e Supabase. O sistema permite o controle do fluxo de aparelhos em diferentes estágios de reparo, utilizando uma interface Kanban.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Autenticação de usuários
+- Visualização de aparelhos em formato Kanban
+- Arrastar e soltar aparelhos entre estágios
+- Adicionar novos aparelhos
+- Visualizar detalhes dos aparelhos
+- Atualizar localização de aparelhos prontos
+- Atualizações em tempo real
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuração do Projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Configuração do Supabase
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Crie uma conta no [Supabase](https://supabase.com)
+2. Crie um novo projeto
+3. Execute o script SQL do arquivo `supabase.sql` no Editor SQL do Supabase
+4. Configure a autenticação por email no painel do Supabase
+5. Copie as credenciais do projeto (URL e Anon Key)
 
-## Learn More
+### 2. Configuração do Ambiente Local
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone o repositório
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=sua_url_do_supabase
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima_do_supabase
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Executando o Projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+2. Acesse o sistema em `http://localhost:3000`
 
-## Deploy on Vercel
+## Uso do Sistema
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Login**: Acesse o sistema usando suas credenciais cadastradas no Supabase
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Adicionar Aparelho**:
+   - Clique em "Novo Aparelho"
+   - Preencha os dados do aparelho
+   - Clique em "Adicionar Aparelho"
+
+3. **Gerenciar Aparelhos**:
+   - Arraste os cartões entre as colunas para atualizar o estágio
+   - Clique em um cartão para ver mais detalhes
+   - Ao mover para "Pronto para entrega", informe a localização
+
+4. **Visualizar Detalhes**:
+   - Clique em qualquer cartão para ver informações completas
+   - Atualize a localização quando necessário
+
+## Estrutura do Projeto
+
+- `/app` - Páginas e rotas do Next.js
+- `/components` - Componentes React reutilizáveis
+- `/utils` - Utilitários e configurações
+- `supabase.sql` - Script de configuração do banco de dados
+
+## Tecnologias Utilizadas
+
+- Next.js 14
+- React
+- Supabase
+- TypeScript
+- Tailwind CSS
+- React Beautiful DND
+
+## Suporte
+
+Para suporte ou dúvidas, abra uma issue no repositório ou entre em contato com a equipe de desenvolvimento.
