@@ -14,7 +14,6 @@ import {
   PhoneAndroid,
   CheckCircle,
   Done,
-  Warning,
   FactCheck
 } from '@mui/icons-material';
 
