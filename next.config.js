@@ -15,7 +15,7 @@ const nextConfig = {
   },
 
   // Não precisamos de basePath ou assetPrefix no Vercel
-  // reactStrictMode: true para melhor detecção de problemas durante o desenvolvimento
+  // reactStrictMode para melhor detecção de problemas durante o desenvolvimento
   reactStrictMode: true,
 }
 
