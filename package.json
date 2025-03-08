@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build --no-lint",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf .next/ out/",
+    "predeploy": "npm run clean && EXPORT=true NODE_ENV=production npm run build",
+    "deploy": "gh-pages -d out",
+    "build:prod": "next build --no-lint",
+    "start:prod": "pm2 start ecosystem.config.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -31,6 +36,7 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

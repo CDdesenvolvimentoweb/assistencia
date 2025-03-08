@@ -1,11 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: process.env.EXPORT === 'true' ? 'export' : undefined,
   images: {
-    unoptimized: true,
+    unoptimized: process.env.EXPORT === 'true',
   },
-  basePath: '/assistencia', // Nome do seu repositório
-  assetPrefix: '/assistencia/', // Nome do seu repositório com barra no final
+  // Remova estas configurações para VPS
+  // basePath: isProduction ? `/${repoName}` : '',
+  // assetPrefix: isProduction ? `/${repoName}/` : '',
+  // trailingSlash: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
+  swcMinify: true,
 }
 
 module.exports = nextConfig 
