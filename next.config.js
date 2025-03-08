@@ -5,6 +5,7 @@ const nextConfig = {
     unoptimized: process.env.EXPORT === 'true',
   },
   basePath: '/assistencia',
+  assetPrefix: '/assistencia',
   // Remova estas configurações para VPS
   // assetPrefix: isProduction ? `/${repoName}/` : '',
   // trailingSlash: true,

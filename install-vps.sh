@@ -34,6 +34,11 @@ npm install
 echo "Construindo a aplicação..."
 npm run build
 
+# Corrigir permissões dos arquivos estáticos
+echo "Corrigindo permissões dos arquivos estáticos..."
+sudo chmod -R 755 $INSTALL_DIR/.next
+sudo chown -R www-data:www-data $INSTALL_DIR/.next
+
 # Configurar PM2
 echo "Configurando PM2..."
 if ! command -v pm2 &> /dev/null; then
@@ -50,5 +55,13 @@ pm2 save
 echo "Configurando inicialização automática..."
 pm2 startup | tail -n 1 | bash
 
+# Verificar configuração do Nginx
+echo "Verificando configuração do Nginx..."
+sudo nginx -t
+sudo systemctl restart nginx
+
 echo "Instalação concluída com sucesso!"
-echo "O sistema está disponível em: https://busqueaquiguaira.com/assistencia/" 
+echo "O sistema está disponível em: https://busqueaquiguaira.com/assistencia/"
+echo ""
+echo "Se encontrar problemas com arquivos estáticos, execute:"
+echo "./fix-permissions.sh" 
