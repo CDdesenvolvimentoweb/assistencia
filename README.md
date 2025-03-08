@@ -1,82 +1,92 @@
-# Sistema de Gerenciamento de Aparelhos - Assistência Técnica
+# Sistema de Gerenciamento de Assistência Técnica
 
-Este é um sistema de gerenciamento de aparelhos para assistência técnica, desenvolvido com Next.js e Supabase. O sistema permite o controle do fluxo de aparelhos em diferentes estágios de reparo, utilizando uma interface Kanban.
+Um sistema de gerenciamento de assistência técnica desenvolvido com Next.js, React, Tailwind CSS e Supabase.
 
-## Funcionalidades
+## Características
 
+- Interface moderna e responsiva com Tailwind CSS
+- Animações fluidas com Framer Motion
+- Sistema de arrastar e soltar para gerenciar aparelhos
+- Persistência de dados com Supabase
 - Autenticação de usuários
-- Visualização de aparelhos em formato Kanban
-- Arrastar e soltar aparelhos entre estágios
-- Adicionar novos aparelhos
-- Visualizar detalhes dos aparelhos
-- Atualizar localização de aparelhos prontos
-- Atualizações em tempo real
 
-## Configuração do Projeto
+## Requisitos
 
-### 1. Configuração do Supabase
+- Node.js 18.x ou superior
+- NPM 9.x ou superior
 
-1. Crie uma conta no [Supabase](https://supabase.com)
-2. Crie um novo projeto
-3. Execute o script SQL do arquivo `supabase.sql` no Editor SQL do Supabase
-4. Configure a autenticação por email no painel do Supabase
-5. Copie as credenciais do projeto (URL e Anon Key)
+## Configuração Local
 
-### 2. Configuração do Ambiente Local
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/CDdesenvolvimentoweb/assistencia.git
+   cd assistencia
+   ```
 
-1. Clone o repositório
 2. Instale as dependências:
    ```bash
    npm install
    ```
-3. Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
+
+3. Configure as variáveis de ambiente:
+   Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
    ```
-   NEXT_PUBLIC_SUPABASE_URL=sua_url_do_supabase
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima_do_supabase
+   NEXT_PUBLIC_SUPABASE_URL=seu-url-do-supabase
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=sua-chave-anonima-do-supabase
    ```
 
-### 3. Executando o Projeto
-
-1. Inicie o servidor de desenvolvimento:
+4. Execute o servidor de desenvolvimento:
    ```bash
    npm run dev
    ```
-2. Acesse o sistema em `http://localhost:3000`
 
-## Uso do Sistema
+5. Acesse o projeto em `http://localhost:3000`
 
-1. **Login**: Acesse o sistema usando suas credenciais cadastradas no Supabase
+## Deploy no Vercel
 
-2. **Adicionar Aparelho**:
-   - Clique em "Novo Aparelho"
-   - Preencha os dados do aparelho
-   - Clique em "Adicionar Aparelho"
+Este projeto está configurado para ser facilmente implantado no Vercel. Siga estas etapas:
 
-3. **Gerenciar Aparelhos**:
-   - Arraste os cartões entre as colunas para atualizar o estágio
-   - Clique em um cartão para ver mais detalhes
-   - Ao mover para "Pronto para entrega", informe a localização
+1. Crie uma conta no [Vercel](https://vercel.com) (gratuito para projetos pessoais)
 
-4. **Visualizar Detalhes**:
-   - Clique em qualquer cartão para ver informações completas
-   - Atualize a localização quando necessário
+2. Instale a CLI do Vercel (opcional):
+   ```bash
+   npm install -g vercel
+   ```
+
+3. Faça login na CLI (opcional):
+   ```bash
+   vercel login
+   ```
+
+4. Deploy via Dashboard do Vercel:
+   - Acesse https://vercel.com/new
+   - Importe seu repositório GitHub
+   - Configure as variáveis de ambiente (as mesmas do `.env.local`)
+   - Clique em "Deploy"
+
+5. Alternativamente, deploy via CLI:
+   ```bash
+   vercel
+   ```
+
+A vantagem do Vercel é que ele detecta automaticamente o framework Next.js e configura tudo para você, incluindo:
+
+- Otimização de imagens
+- Pré-renderização de páginas estáticas
+- Rotas API para funções serverless
+- CDN global para carregamento rápido
+- Integração contínua com GitHub
+
+Após o deploy, sua aplicação estará disponível em um domínio `.vercel.app` que pode ser personalizado posteriormente com um domínio personalizado.
 
 ## Estrutura do Projeto
 
-- `/app` - Páginas e rotas do Next.js
+- `/app` - Páginas e rotas da aplicação
 - `/components` - Componentes React reutilizáveis
-- `/utils` - Utilitários e configurações
-- `supabase.sql` - Script de configuração do banco de dados
+- `/public` - Arquivos estáticos (imagens, favicon, etc.)
+- `/utils` - Utilitários e configurações (Supabase, etc.)
+- `/styles` - Estilos globais e configuração do Tailwind
 
-## Tecnologias Utilizadas
+## Licença
 
-- Next.js 14
-- React
-- Supabase
-- TypeScript
-- Tailwind CSS
-- React Beautiful DND
-
-## Suporte
-
-Para suporte ou dúvidas, abra uma issue no repositório ou entre em contato com a equipe de desenvolvimento.
+Este projeto está licenciado sob a licença MIT - consulte o arquivo LICENSE para obter detalhes.

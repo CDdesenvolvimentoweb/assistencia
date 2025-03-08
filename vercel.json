@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npm run build",
+  "framework": "nextjs",
+  "github": {
+    "silent": true
+  },
+  "installCommand": "npm install",
+  "outputDirectory": ".next"
+} 

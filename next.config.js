@@ -1,15 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: process.env.EXPORT === 'true' ? 'export' : undefined,
+  // O Vercel gerencia automaticamente o output, não precisamos de 'export'
+  // output: 'export',  
+  
+  // Configurações para imagens - o Vercel suporta otimização de imagens
   images: {
-    unoptimized: process.env.EXPORT === 'true',
+    domains: ['cddesenvolvimentoweb.github.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
-  basePath: '/assistencia',
-  assetPrefix: '/assistencia',
-  // Remova estas configurações para VPS
-  // assetPrefix: isProduction ? `/${repoName}/` : '',
-  // trailingSlash: true,
-  poweredByHeader: false,
+
+  // Não precisamos de basePath ou assetPrefix no Vercel
+  // reactStrictMode: true para melhor detecção de problemas durante o desenvolvimento
   reactStrictMode: true,
 }
 
