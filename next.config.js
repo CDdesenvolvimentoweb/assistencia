@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: process.env.EXPORT === 'true',
   },
+  basePath: '/assistencia',
   // Remova estas configurações para VPS
-  // basePath: isProduction ? `/${repoName}` : '',
   // assetPrefix: isProduction ? `/${repoName}/` : '',
   // trailingSlash: true,
   poweredByHeader: false,
